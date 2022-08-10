@@ -15,8 +15,11 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc:
+  flutter_localizations: 
+    sdk: flutter         
   freezed_annotation: 
   get_it:
+  intl:
   json_serializable:
   package_info_plus: 
   shared_preferences:
@@ -30,6 +33,8 @@ dev_dependencies:
   freezed:
 
 flutter:
+  generate: true
+
   uses-material-design: true
 
   assets:

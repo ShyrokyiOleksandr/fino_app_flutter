@@ -1,3 +1,4 @@
+import 'package:fino/presentation/common/extensions/build_context_extensions.dart';
 import 'package:fino/presentation/common/ui/app_try_again_error.dart';
 import 'package:fino/presentation/common/ui/loading/app_loading_overlay.dart';
 import 'package:fino/presentation/features/count/count_cubit.dart';
@@ -28,9 +29,7 @@ class _CountScreenState extends State<CountScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    const Text(
-                      'You have pushed the button this many times:',
-                    ),
+                    Text(context.strings.countTitle),
                     Text(
                       '${state.number}',
                       style: Theme.of(context).textTheme.headline4,
