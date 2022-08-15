@@ -1,6 +1,5 @@
 import 'package:fino/presentation/common/resources/colors/app_colors.dart';
-import 'package:fino/presentation/features/count/count_screen.dart';
-
+import 'package:fino/presentation/features/home/home_screen.dart';
 import 'package:fino/presentation/features/settings/settings_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +33,7 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
         physics: const NeverScrollableScrollPhysics(),
         controller: _tabController,
         children: const [
-          CountScreen(),
+          HomeScreen(),
           SettingsScreen(),
         ],
       ),

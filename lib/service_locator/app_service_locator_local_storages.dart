@@ -7,9 +7,9 @@ class AppServiceLocatorLocalStorages {
     instance.registerSingleton<SharedPreferences>(
       await SharedPreferences.getInstance(),
     );
-        instance.registerLazySingleton<CountLocalStorage>(
+    instance.registerLazySingleton<TransactionsLocalStorage>(
       () {
-        return CountLocalStorage(
+        return TransactionsLocalStorage(
           sharedPreferences: instance<SharedPreferences>(),
         );
       },
