@@ -23,12 +23,6 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Fino"),
-        backgroundColor: AppColors.background,
-        foregroundColor: AppColors.foreground,
-        centerTitle: true,
-      ),
       body: TabBarView(
         physics: const NeverScrollableScrollPhysics(),
         controller: _tabController,

@@ -10,6 +10,9 @@ class TransactionsRepositoryImpl extends TransactionsRepository {
     Transaction(id: '2', value: -300.0, date: DateTime.now(), comment: 'bla bla'),
     Transaction(id: '3', value: 100.0, date: DateTime.now(), comment: 'bla bla'),
     Transaction(id: '4', value: -1000.0, date: DateTime.now(), comment: 'bla bla'),
+    Transaction(id: '5', value: 3000.0, date: DateTime.now(), comment: 'new bla bla'),
+    Transaction(id: '5', value: -4000.0, date: DateTime.now(), comment: 'new bla bla'),
+    Transaction(id: '5', value: 2000.0, date: DateTime.now(), comment: 'new bla bla'),
   ];
 
   TransactionsRepositoryImpl({

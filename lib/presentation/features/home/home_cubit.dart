@@ -16,7 +16,20 @@ class HomeCubit extends Cubit<HomeState> {
     emit(state.copyWith(isLoading: true, loadingException: null));
     try {
       final transactions = await _getTransactionsUseCase.execute();
-      emit(state.copyWith(isLoading: false, transactions: transactions));
+      final balance = transactions.fold<double>(0, (previous, current) => previous + current.value);
+      final totalIncome = transactions
+          .where((element) => element.value >= 0)
+          .fold<double>(0, (previous, current) => previous + current.value);
+      final totalCost = transactions
+          .where((element) => element.value < 0)
+          .fold<double>(0, (previous, current) => previous + current.value);
+      emit(state.copyWith(
+        isLoading: false,
+        transactions: transactions,
+        balance: balance,
+        totalIncome: totalIncome,
+        totalCost: totalCost,
+      ));
     } on Exception catch (exception) {
       emit(state.copyWith(isLoading: false, loadingException: exception));
     }
