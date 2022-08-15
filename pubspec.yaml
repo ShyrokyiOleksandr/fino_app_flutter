@@ -20,6 +20,7 @@ dependencies:
   freezed_annotation: 
   get_it:
   intl:
+  jiffy:
   json_serializable:
   package_info_plus: 
   shared_preferences:

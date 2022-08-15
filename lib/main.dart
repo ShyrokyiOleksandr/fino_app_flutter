@@ -2,7 +2,6 @@ import 'package:fino/presentation/app/fino_app.dart';
 import 'package:fino/service_locator/app_service_locator.dart';
 import 'package:flutter/material.dart';
 
-// TODO: Add native splash screen
 // TODO: ... ADD WHAT ELSE
 // TODO: !Finish: Release to PlayMarket
 

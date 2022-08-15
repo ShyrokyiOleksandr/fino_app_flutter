@@ -6,4 +6,6 @@ class AppColors {
   static const background = Colors.white;
   static const foreground = Colors.black;
   static const inactive = Colors.grey;
+  static const red = Colors.red;
+  static const black = Colors.black;
 }

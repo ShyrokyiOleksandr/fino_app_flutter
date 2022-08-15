@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'count_state.dart';
+part of 'home_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,43 +15,45 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$CountState {
-  int get number => throw _privateConstructorUsedError;
+mixin _$HomeState {
+  List<Transaction> get transactions => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   Exception? get loadingException => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CountStateCopyWith<CountState> get copyWith =>
+  $HomeStateCopyWith<HomeState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CountStateCopyWith<$Res> {
-  factory $CountStateCopyWith(
-          CountState value, $Res Function(CountState) then) =
-      _$CountStateCopyWithImpl<$Res>;
-  $Res call({int number, bool isLoading, Exception? loadingException});
+abstract class $HomeStateCopyWith<$Res> {
+  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
+      _$HomeStateCopyWithImpl<$Res>;
+  $Res call(
+      {List<Transaction> transactions,
+      bool isLoading,
+      Exception? loadingException});
 }
 
 /// @nodoc
-class _$CountStateCopyWithImpl<$Res> implements $CountStateCopyWith<$Res> {
-  _$CountStateCopyWithImpl(this._value, this._then);
+class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
+  _$HomeStateCopyWithImpl(this._value, this._then);
 
-  final CountState _value;
+  final HomeState _value;
   // ignore: unused_field
-  final $Res Function(CountState) _then;
+  final $Res Function(HomeState) _then;
 
   @override
   $Res call({
-    Object? number = freezed,
+    Object? transactions = freezed,
     Object? isLoading = freezed,
     Object? loadingException = freezed,
   }) {
     return _then(_value.copyWith(
-      number: number == freezed
-          ? _value.number
-          : number // ignore: cast_nullable_to_non_nullable
-              as int,
+      transactions: transactions == freezed
+          ? _value.transactions
+          : transactions // ignore: cast_nullable_to_non_nullable
+              as List<Transaction>,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -65,36 +67,38 @@ class _$CountStateCopyWithImpl<$Res> implements $CountStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_CountStateCopyWith<$Res>
-    implements $CountStateCopyWith<$Res> {
-  factory _$$_CountStateCopyWith(
-          _$_CountState value, $Res Function(_$_CountState) then) =
-      __$$_CountStateCopyWithImpl<$Res>;
+abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
+  factory _$$_HomeStateCopyWith(
+          _$_HomeState value, $Res Function(_$_HomeState) then) =
+      __$$_HomeStateCopyWithImpl<$Res>;
   @override
-  $Res call({int number, bool isLoading, Exception? loadingException});
+  $Res call(
+      {List<Transaction> transactions,
+      bool isLoading,
+      Exception? loadingException});
 }
 
 /// @nodoc
-class __$$_CountStateCopyWithImpl<$Res> extends _$CountStateCopyWithImpl<$Res>
-    implements _$$_CountStateCopyWith<$Res> {
-  __$$_CountStateCopyWithImpl(
-      _$_CountState _value, $Res Function(_$_CountState) _then)
-      : super(_value, (v) => _then(v as _$_CountState));
+class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
+    implements _$$_HomeStateCopyWith<$Res> {
+  __$$_HomeStateCopyWithImpl(
+      _$_HomeState _value, $Res Function(_$_HomeState) _then)
+      : super(_value, (v) => _then(v as _$_HomeState));
 
   @override
-  _$_CountState get _value => super._value as _$_CountState;
+  _$_HomeState get _value => super._value as _$_HomeState;
 
   @override
   $Res call({
-    Object? number = freezed,
+    Object? transactions = freezed,
     Object? isLoading = freezed,
     Object? loadingException = freezed,
   }) {
-    return _then(_$_CountState(
-      number: number == freezed
-          ? _value.number
-          : number // ignore: cast_nullable_to_non_nullable
-              as int,
+    return _then(_$_HomeState(
+      transactions: transactions == freezed
+          ? _value._transactions
+          : transactions // ignore: cast_nullable_to_non_nullable
+              as List<Transaction>,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -109,15 +113,21 @@ class __$$_CountStateCopyWithImpl<$Res> extends _$CountStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CountState extends _CountState {
-  const _$_CountState(
-      {required this.number,
+class _$_HomeState extends _HomeState {
+  const _$_HomeState(
+      {required final List<Transaction> transactions,
       required this.isLoading,
       required this.loadingException})
-      : super._();
+      : _transactions = transactions,
+        super._();
 
+  final List<Transaction> _transactions;
   @override
-  final int number;
+  List<Transaction> get transactions {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_transactions);
+  }
+
   @override
   final bool isLoading;
   @override
@@ -125,15 +135,16 @@ class _$_CountState extends _CountState {
 
   @override
   String toString() {
-    return 'CountState(number: $number, isLoading: $isLoading, loadingException: $loadingException)';
+    return 'HomeState(transactions: $transactions, isLoading: $isLoading, loadingException: $loadingException)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CountState &&
-            const DeepCollectionEquality().equals(other.number, number) &&
+            other is _$_HomeState &&
+            const DeepCollectionEquality()
+                .equals(other._transactions, _transactions) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
                 .equals(other.loadingException, loadingException));
@@ -142,31 +153,31 @@ class _$_CountState extends _CountState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(number),
+      const DeepCollectionEquality().hash(_transactions),
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(loadingException));
 
   @JsonKey(ignore: true)
   @override
-  _$$_CountStateCopyWith<_$_CountState> get copyWith =>
-      __$$_CountStateCopyWithImpl<_$_CountState>(this, _$identity);
+  _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
+      __$$_HomeStateCopyWithImpl<_$_HomeState>(this, _$identity);
 }
 
-abstract class _CountState extends CountState {
-  const factory _CountState(
-      {required final int number,
+abstract class _HomeState extends HomeState {
+  const factory _HomeState(
+      {required final List<Transaction> transactions,
       required final bool isLoading,
-      required final Exception? loadingException}) = _$_CountState;
-  const _CountState._() : super._();
+      required final Exception? loadingException}) = _$_HomeState;
+  const _HomeState._() : super._();
 
   @override
-  int get number;
+  List<Transaction> get transactions;
   @override
   bool get isLoading;
   @override
   Exception? get loadingException;
   @override
   @JsonKey(ignore: true)
-  _$$_CountStateCopyWith<_$_CountState> get copyWith =>
+  _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
       throw _privateConstructorUsedError;
 }
