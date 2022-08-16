@@ -3,6 +3,7 @@ import 'package:fino/presentation/common/ui/app_try_again_error.dart';
 import 'package:fino/presentation/common/ui/loading/app_loading_overlay.dart';
 import 'package:fino/presentation/features/home/home_cubit.dart';
 import 'package:fino/presentation/features/home/home_state.dart';
+import 'package:fino/presentation/features/home/ui/main_screen_top_panel.dart';
 import 'package:fino/service_locator/app_service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -44,10 +45,19 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             child: Stack(
               children: [
+                MainScreenTopPanel(
+                  backgroundColor: Colors.transparent,
+                  onUserPressed: () {
+                    // TODO: Implement method
+                  },
+                  onFilterPressed: () {
+                    // TODO: Implement method
+                  },
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 100),
+                    const SizedBox(height: 150),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Column(
