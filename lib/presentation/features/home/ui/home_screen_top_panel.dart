@@ -3,7 +3,7 @@ import 'package:fino/presentation/common/resources/colors/app_colors.dart';
 import 'package:fino/presentation/common/ui/images/app_circle_image.dart';
 import 'package:flutter/material.dart';
 
-class MainScreenTopPanel extends StatelessWidget {
+class HomeScreenTopPanel extends StatelessWidget {
   static const double height = 46;
   static const EdgeInsets padding = EdgeInsets.fromLTRB(16, 8, 16, 8);
 
@@ -12,7 +12,7 @@ class MainScreenTopPanel extends StatelessWidget {
   final VoidCallback onUserPressed;
   final VoidCallback onFilterPressed;
 
-  const MainScreenTopPanel({
+  const HomeScreenTopPanel({
     required this.backgroundColor,
     //required this.currentUser,
     required this.onUserPressed,
@@ -77,10 +77,10 @@ class _ItemContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MainScreenTopPanel.height,
+      height: HomeScreenTopPanel.height,
       decoration: BoxDecoration(
         color: Colors.transparent,
-        borderRadius: const BorderRadius.all(Radius.circular(MainScreenTopPanel.height / 2)),
+        borderRadius: const BorderRadius.all(Radius.circular(HomeScreenTopPanel.height / 2)),
         border: Border.all(color: AppColors.inactive, width: 1),
       ),
       child: _ItemInkOverlay(
@@ -115,7 +115,7 @@ class _ItemInkOverlay extends StatelessWidget {
             child: InkWell(
               onTap: onPressed,
               borderRadius: const BorderRadius.all(
-                Radius.circular(MainScreenTopPanel.height / 2),
+                Radius.circular(HomeScreenTopPanel.height / 2),
               ),
             ),
           ),
