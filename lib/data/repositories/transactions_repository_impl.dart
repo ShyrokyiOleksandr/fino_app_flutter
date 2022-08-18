@@ -13,6 +13,7 @@ class TransactionsRepositoryImpl extends TransactionsRepository {
     Transaction(id: '5', value: 3000.0, date: DateTime.now(), comment: 'new bla bla'),
     Transaction(id: '5', value: -4000.0, date: DateTime.now(), comment: 'new bla bla'),
     Transaction(id: '5', value: 2000.0, date: DateTime.now(), comment: 'new bla bla'),
+    Transaction(id: '5', value: 2000.0, date: DateTime.now(), comment: 'new bla bla'),
   ];
 
   TransactionsRepositoryImpl({

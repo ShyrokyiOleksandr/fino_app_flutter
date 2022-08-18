@@ -13,6 +13,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // TODO: Make Indicators disapear on _transactionsListSheet expand
 // TODO: Make HomeScreenTopPannel's elements change colors to black on _transactionsListSheet expand
+// TODO: Play with charts
+// TODO: Make bottom nav bar rounded
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -107,24 +109,37 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           floatingActionButton: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 68),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                FloatingActionButton(
-                  onPressed: () {},
-                  tooltip: 'Increment',
+                FloatingActionButton.extended(
+                  onPressed: _addNegativeTransaction,
+                  tooltip: 'Decrement',
                   backgroundColor: AppColors.background,
-                  foregroundColor: AppColors.foreground,
-                  child: const Icon(Icons.minimize_outlined),
+                  foregroundColor: Colors.purple,
+                  label: const Text("Lend"),
                 ),
-                const Spacer(),
-                FloatingActionButton(
-                  onPressed: () {},
+                FloatingActionButton.extended(
+                  onPressed: _addNegativeTransaction,
+                  tooltip: 'Decrement',
+                  backgroundColor: AppColors.background,
+                  foregroundColor: Colors.red,
+                  label: const Text("Spend"),
+                ),
+                FloatingActionButton.extended(
+                  onPressed: _addPositiveTransaction,
                   tooltip: 'Increment',
                   backgroundColor: AppColors.background,
-                  foregroundColor: AppColors.foreground,
-                  child: const Icon(Icons.add),
+                  foregroundColor: Colors.lightGreen,
+                  label: const Text("Earn"),
+                ),
+                FloatingActionButton.extended(
+                  onPressed: _addPositiveTransaction,
+                  tooltip: 'Increment',
+                  backgroundColor: AppColors.background,
+                  foregroundColor: Colors.lightBlue,
+                  label: const Text("Borrow"),
                 ),
               ],
             ),
@@ -142,6 +157,12 @@ class _HomeScreenState extends State<HomeScreen> {
   void _showFilterPopUp() {
     // TODO: Implement method
   }
+
+  void _addPositiveTransaction() {
+    // TODO: Implement method
+  }
+
+  void _addNegativeTransaction() {}
 }
 
 class _Indicators extends StatelessWidget {
@@ -181,21 +202,15 @@ class _Indicators extends StatelessWidget {
                   "+${totalIncome.toString()}₴",
                   style: const TextStyle(color: AppColors.green, fontSize: 24),
                 ),
-                Row(
+                Column(
                   children: [
-                    Expanded(
-                      child: Text(
-                        "${balance.toString()}₴",
-                        style: const TextStyle(color: AppColors.background, fontSize: 36),
-                      ),
+                    Text(
+                      "${balance.toString()}₴",
+                      style: const TextStyle(color: AppColors.background, fontSize: 36),
                     ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      // TODO: Change to totalSaving
-                      child: Text(
-                        "${balance.toString()}₴",
-                        style: const TextStyle(color: Colors.orange, fontSize: 36),
-                      ),
+                    Text(
+                      "${balance.toString()}₴",
+                      style: const TextStyle(color: Colors.orange, fontSize: 36),
                     ),
                   ],
                 ),

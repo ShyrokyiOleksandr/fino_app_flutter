@@ -6,7 +6,7 @@ import 'package:fino/presentation/common/ui/bottom_sheets/app_bottom_sheet_drag_
 import 'package:flutter/material.dart';
 
 class HomeTransactionsDraggableSheet extends StatefulWidget {
-  static const double minHeight = 150;
+  static const double minHeight = 300;
 
   final Function(double heigthFraction) onSheetHeightChanged;
 
@@ -91,7 +91,7 @@ class _SheetContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: AppColors.background,
+        color: AppColors.background.withOpacity(0.7),
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(radius),
           topLeft: Radius.circular(radius),
