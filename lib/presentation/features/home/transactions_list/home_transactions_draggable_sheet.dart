@@ -6,7 +6,7 @@ import 'package:fino/presentation/common/ui/bottom_sheets/app_bottom_sheet_drag_
 import 'package:flutter/material.dart';
 
 class HomeTransactionsDraggableSheet extends StatefulWidget {
-  static const double minHeight = 100;
+  static const double minHeight = 150;
 
   final Function(double heigthFraction) onSheetHeightChanged;
 
@@ -27,20 +27,19 @@ class _HomeTransactionsDraggableSheetState extends State<HomeTransactionsDraggab
     return LayoutBuilder(
       builder: (context, constraints) {
         /// Convert actual heigth to a 0..1 range, since it's used by DraggableScrollableSheet:
-        final _sheetChildMinSize = HomeTransactionsDraggableSheet.minHeight / constraints.maxHeight;
+        final sheetChildMinSize = HomeTransactionsDraggableSheet.minHeight / constraints.maxHeight;
         return DraggableScrollableSheet(
           snap: true,
           expand: true,
           controller: _draggableScrollableController,
-          initialChildSize: _sheetChildMinSize,
-          minChildSize: _sheetChildMinSize,
+          initialChildSize: sheetChildMinSize,
+          minChildSize: sheetChildMinSize,
           builder: (context, scrollController) {
-            final _currentHeightFraction =
-                _calculateCurrentSheetHeightFraction(sheetMinSizeFraction: _sheetChildMinSize);
-            _notifyHeightChange(heightFraction: _currentHeightFraction);
+            final currentHeightFraction = _calculateCurrentSheetHeightFraction(sheetMinSizeFraction: sheetChildMinSize);
+            _notifyHeightChange(heightFraction: currentHeightFraction);
             return _SheetContainer(
               /// Make corners sharp as more the sheet is opened
-              radius: 24 * (1 - _currentHeightFraction),
+              radius: 24 * (1 - currentHeightFraction),
               child: SingleChildScrollView(
                 physics: const ClampingScrollPhysics(),
                 controller: scrollController,
@@ -52,7 +51,7 @@ class _HomeTransactionsDraggableSheetState extends State<HomeTransactionsDraggab
                       children: [
                         _CollapsedContentContainer(
                           maxSheetHeight: constraints.maxHeight,
-                          currentSheetHeightFraction: _currentHeightFraction,
+                          currentSheetHeightFraction: currentHeightFraction,
                           child: const _CollapsedContent(),
                         ),
                       ],
@@ -163,4 +162,45 @@ class _CollapsedContent extends StatelessWidget {
   }
 }
 
-// TODO: !!!!!! Ended here !!!!!!!
+/// Represents a container for current sheet expanded content. Implements offset and opacity transformations
+class _MainContentContainer extends StatelessWidget {
+  final double maxSheetHeight;
+  final double currentSheetHeightFraction;
+  final Widget child;
+
+  const _MainContentContainer({
+    required this.maxSheetHeight,
+    required this.currentSheetHeightFraction,
+    required this.child,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Opacity(
+      opacity: _calculateMainContentOpacityForHeightFraction(
+        heightFraction: currentSheetHeightFraction,
+      ),
+      child: Padding(
+        padding: _calculateMainContentPaddingForHeightFraction(
+          maxHeight: maxSheetHeight,
+          heightFraction: currentSheetHeightFraction,
+        ),
+        child: child,
+      ),
+    );
+  }
+
+  /// Calculates content opacity for current sheet position, also adding a curve for a non-linear transformation
+  double _calculateMainContentOpacityForHeightFraction({required final double heightFraction}) {
+    return pow(heightFraction, 3).toDouble();
+  }
+
+  /// Calculates the top padding the content for current sheet position for the slide in/out effect
+  EdgeInsets _calculateMainContentPaddingForHeightFraction({
+    required final double maxHeight,
+    required final double heightFraction,
+  }) {
+    return EdgeInsets.only(top: maxHeight / 4 * (1 - heightFraction));
+  }
+}
