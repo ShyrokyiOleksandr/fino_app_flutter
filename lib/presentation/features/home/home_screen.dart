@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// !!! TODO: Debug on both Android and iOS !!!
 // TODO: Make Indicators disapear on _transactionsListSheet expand
 // TODO: Make HomeScreenTopPannel's elements change colors to black on _transactionsListSheet expand
 // TODO: Play with charts
